@@ -1,8 +1,5 @@
-import math
-
 import pandas as pd
 from flask import Flask, jsonify, render_template, request
-import numpy as np
 
 app = Flask(__name__)
 
@@ -40,11 +37,11 @@ def get_weather(data=df):
 
     if kwargs.get('temp_min') is not None:
         temp_min = kwargs['temp_min']
-        filtered_df = filtered_df[(filtered_df['TAVG'] >= temp_min - epsilon) | (filtered_df['TAVG'].isnull())]
+        filtered_df = filtered_df[(filtered_df['TAVG'] >= temp_min - epsilon)]
 
     if kwargs.get('temp_max') is not None:
         temp_max = kwargs['temp_max']
-        filtered_df = filtered_df[(filtered_df['TAVG'] <= temp_max + epsilon) | (filtered_df['TAVG'].isnull())]
+        filtered_df = filtered_df[(filtered_df['TAVG'] <= temp_max + epsilon)]
 
     if kwargs.get('due_to'):
         due_to = kwargs['due_to']
