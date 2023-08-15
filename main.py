@@ -1,10 +1,12 @@
 import pandas as pd
 from flask import Flask, jsonify, render_template, request
+import datetime
 
 app = Flask(__name__)
 
 # Read the .csv dataset
 df = pd.read_csv('warsaw.csv')
+df['DATE'] = pd.to_datetime(df['DATE'])
 df.info()
 
 
@@ -14,17 +16,17 @@ def home():
 
 
 @app.route('/weather', methods=['GET'])
-def get_weather(data=df):
+def get_weather_date_range(data=df):
     # Drop the 'TMIN' and 'TMAX' columns from the dataframe
     filtered_df = data.drop(['TMIN', 'TMAX'], axis=1)
     epsilon = 0.01  # to fix comparison of floats
 
     # Get the query parameters as kwargs
     kwargs = {
-        'date': request.args.get('date', default=None, type=str),
+        'date_start': request.args.get('date_start', default=None, type=str),
+        'date_end': request.args.get('date_end', default=None, type=str),
         'temp_min': request.args.get('temp_min', default=None, type=float),
-        'temp_max': request.args.get('temp_max', default=None, type=float),
-        'due_to': request.args.get('due_to', default=None, type=str)
+        'temp_max': request.args.get('temp_max', default=None, type=float)
     }
 
     # If no argument is provided, return the whole dataset
@@ -32,8 +34,13 @@ def get_weather(data=df):
         return jsonify(filtered_df.to_dict(orient='records'))
 
     # Filter the dataframe based on the provided arguments using kwargs
-    if kwargs.get('date'):
-        filtered_df = filtered_df[filtered_df['DATE'] == kwargs['date']]
+    if kwargs.get('date_start'):
+        date_start = datetime.datetime.strptime(kwargs['date_start'], '%Y-%m-%d')
+        filtered_df = filtered_df[filtered_df['DATE'] >= date_start]
+
+    if kwargs.get('date_end'):
+        date_end = datetime.datetime.strptime(kwargs['date_end'], '%Y-%m-%d')
+        filtered_df = filtered_df[filtered_df['DATE'] <= date_end]
 
     if kwargs.get('temp_min') is not None:
         temp_min = kwargs['temp_min']
@@ -42,10 +49,6 @@ def get_weather(data=df):
     if kwargs.get('temp_max') is not None:
         temp_max = kwargs['temp_max']
         filtered_df = filtered_df[(filtered_df['TAVG'] <= temp_max + epsilon)]
-
-    if kwargs.get('due_to'):
-        due_to = kwargs['due_to']
-        filtered_df = filtered_df[filtered_df['DATE'] <= due_to]
 
     # Convert the filtered data to JSON
     output = filtered_df.to_dict(orient='records')
