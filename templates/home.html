@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Polish Weather API</title>
+    <title>Warsaw Weather API</title>
 </head>
 <body>
-    <h1>Polish Weather API</h1>
+    <h1>Warsaw Weather API</h1>
     <h3>Querry examples:</h3>
         <p>Access all data: http://127.0.0.1:5000/weather</p>
     <h3>Date endpoints:</h3>
-        <p>Access data from exact date: http://127.0.0.1:5000/weather/date/2019-01-01</p>
-        <p>Access data from date range: http://127.0.0.1:5000/weather/date/between/2005-01-01/2010-01-02</p>
-        <p>Access data after: http://127.0.0.1:5000/weather/date/after/2005-01-01</p>
-        <p>Access data before: http://127.0.0.1:5000/weather/date/before/2010-01-02</p>
+        <h4>Filter by temperature:</h4>
+            <p>Access data with temperatures starting with [your_value] -> http://127.0.0.1:5000/weather?temp_min=[your_value]</p>
+            <p>Access data with temperatures ending with [your_value] -> http://127.0.0.1:5000/weather?temp_max=[your_value]</p>
+            <p>Example: Return data in temperature range 0-10 deg C -> http://127.0.0.1:5000/weather?temp_min=0&temp_max=10</p>
+        <h4>Filter by date:</h4>
+    <p>Please follow this date format: <b>yyyy-mm-dd</b></p>
+            <p>Access data starting with [your_value] -> http://127.0.0.1:5000/weather?date_start=[your_value]</p>
+            <p>Access data ending with [your_value] -> http://127.0.0.1:5000/weather?date_end=[your_value]</p>
+            <p>Example: Return data in date range 2015-01-01 to 2020-12-31 -> http://127.0.0.1:5000/weather?date_start=2015-01-01&date_end=2020-12-31</p>
+        <h4>Mix the querries:</h4>
+            <p>You can add more filtration to get more detailed output:</p>
+            <p>Data in 2012-01-01 to 2018-01-01 range for temperatures up to -5 deg C -> http://127.0.0.1:5000/weather?date_start=2012-01-01&date_end=2018-01-01&temp_max=-5</p>
 </body>
 </html>
