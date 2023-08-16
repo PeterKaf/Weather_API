@@ -1,6 +1,16 @@
 # Weather Data API
 
 This script provides a Flask API to retrieve weather data from a CSV file. It allows users to query the data based on date range and temperature range.
+## Dataset
+All credit goes to the original author of the dataset.
+
+<b>Title:</b> Warsaw Daily Weather Dataset
+
+<b>Author:</b> [Climate Data Online](https://www.ncdc.noaa.gov/cdo-web/)
+
+<b>Source:</b> [https://www.kaggle.com/datasets/mateuszk013/warsaw-daily-weather](https://www.kaggle.com/datasets/mateuszk013/warsaw-daily-weather)
+
+<b>License:</b> [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## Installation
 
