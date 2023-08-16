@@ -20,7 +20,7 @@ All credit goes to the original author of the dataset.
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/weather-data-api.git
+   git clone https://github.com/PeterKaf/Weather_API.git
    ```
 
 2. Install the required dependencies:
@@ -34,7 +34,7 @@ All credit goes to the original author of the dataset.
 1. Start the Flask server:
 
    ```
-   python app.py
+   python main.py
    ```
 2. Check if you get following message:
     ```
