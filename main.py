@@ -7,7 +7,6 @@ app = Flask(__name__)
 # Read the .csv dataset
 df = pd.read_csv('warsaw.csv')
 df['DATE'] = pd.to_datetime(df['DATE'])
-df.info()
 
 
 @app.route('/')
@@ -59,4 +58,4 @@ def get_weather_date_range(data=df):
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
