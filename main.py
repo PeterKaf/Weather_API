@@ -25,7 +25,8 @@ def get_weather_date_range(data=df):
         'date_start': request.args.get('date_start', default=None, type=str),
         'date_end': request.args.get('date_end', default=None, type=str),
         'temp_min': request.args.get('temp_min', default=None, type=float),
-        'temp_max': request.args.get('temp_max', default=None, type=float)
+        'temp_max': request.args.get('temp_max', default=None, type=float),
+        'month': request.args.get('month', default=None, type=str)
     }
 
     # If no argument is provided, return the whole dataset
@@ -49,9 +50,12 @@ def get_weather_date_range(data=df):
         temp_max = kwargs['temp_max']
         filtered_df = filtered_df[(filtered_df['TAVG'] <= temp_max + epsilon)]
 
+    if kwargs.get('month'):
+        month = kwargs['month']  # Get the value of the 'month' parameter
+        filtered_df = filtered_df[filtered_df['DATE'].dt.month == int(month)]
+
     # Convert the filtered data to JSON
     output = filtered_df.to_dict(orient='records')
-
     # Return the JSON data from the route
     return jsonify(output)
 

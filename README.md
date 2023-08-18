@@ -53,6 +53,7 @@ All credit goes to the original author of the dataset.
      - `date_end`: End date of the date range (format: YYYY-MM-DD)(inclusive)
      - `temp_min`: Minimum temperature (inclusive)
      - `temp_max`: Maximum temperature (inclusive)
+     - `month`: display only data from a specific month (format: MM)
 
    Example query: [http://127.0.0.1:5000/weather?date_start=2022-01-01&date_end=2022-01-31&temp_min=0&temp_max=10](http://127.0.0.1:5000/weather?date_start=2022-01-01&date_end=2022-01-31&temp_min=0&temp_max=10)
 
