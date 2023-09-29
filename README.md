@@ -61,4 +61,4 @@ All credit goes to the original author of the dataset.
 
 ## Data Analysis Notebook
 
-Notebook contains Exploratory Data Analysis for the same dataset used in API. In fact it uses the API provided to access different data. In case you want to play with it, make sure the API server is running in the background. Otherwise feel free to just check it out
+The notebook contains Exploratory Data Analysis for the same dataset used in API. In fact, it uses the API provided to access different types of data. In case you want to play with it, make sure the API server is running in the background. Otherwise, feel free to just check it out.
