@@ -57,4 +57,4 @@ All credit goes to the original author of the dataset.
 
    Example query: [http://127.0.0.1:5000/weather?date_start=2022-01-01&date_end=2022-01-31&temp_min=0&temp_max=10](http://127.0.0.1:5000/weather?date_start=2022-01-01&date_end=2022-01-31&temp_min=0&temp_max=10)
 
-5. Check [Home](http://127.0.0.1:5000/) page for more details.
+5. When server is running, check [Home](http://127.0.0.1:5000/) page for more details.
