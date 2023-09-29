@@ -58,3 +58,7 @@ All credit goes to the original author of the dataset.
    Example query: [http://127.0.0.1:5000/weather?date_start=2022-01-01&date_end=2022-01-31&temp_min=0&temp_max=10](http://127.0.0.1:5000/weather?date_start=2022-01-01&date_end=2022-01-31&temp_min=0&temp_max=10)
 
 5. When server is running, check [Home](http://127.0.0.1:5000/) page for more details.
+
+## Data Analysis Notebook
+
+Notebook contains Exploratory Data Analysis for the same dataset used in API. In fact it uses the API provided to access different data. In case you want to play with it, make sure the API server is running in the background. Otherwise feel free to just check it out
