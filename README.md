@@ -3,6 +3,8 @@
 This script provides a Flask API to retrieve weather data from a CSV file. It allows users to query the data based 
 on date range and temperature range.
 
+Additionaly in project files you can also find jupyter notebook with data analysis of API's dataset.
+
 ## Dataset
 
 All credit goes to the original author of the dataset.
