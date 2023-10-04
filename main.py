@@ -15,7 +15,7 @@ def home():
 
 
 @app.route('/weather', methods=['GET'])
-def get_weather_date_range(data=df):
+def get_weather_data(data=df):
     # Drop the 'TMIN' and 'TMAX' columns from the dataframe
     filtered_df = data.drop(['TMIN', 'TMAX'], axis=1)
     epsilon = 0.01  # to fix comparison of floats
